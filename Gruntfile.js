@@ -3,31 +3,32 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  grunt.initConfig({
+    grunt.initConfig({
 
-    pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('package.json'),
 
-    requirejs: {
-        dir: 'build',
-          appDir: 'src',
-          baseUrl: 'js',
-          paths: {
-              jquery: '../vendor/jquery',
-              ember: '../vendor/ember'
-          },
-          pragmas: {
-              doExclude: true
-          },
-          skipModuleInsertion: false,
-          optimizeAllPluginResources: true,
-          findNestedDependencies: true
-    }
+        commonJsToAmd: {
+            dev: {
+                files: [
+                    {
+                        expand: true, // Enable dynamic expansion.
+                        cwd: 'app', // Src matches are relative to this path.
+                        src: ['**/*.js'], // Actual pattern(s) to match.
+                    }
+                ]
+            }
+        }
 
-  });
+    });
 
-  grunt.loadNpmTasks('grunt-requirejs');
+    grunt.registerTask('commonJsToAmd', 'CommonJS to AMD style on the fly', function() {
+        var done = this.async();
 
-  // Default task(s).
-  grunt.registerTask('default', ['requirejs']);
+        grunt.log.writeln('CommonJS to AMD transformation running...');
+
+    });
+
+    // Default task(s).
+    grunt.registerTask('default', ['commonJsToAmd']);
 
 };
