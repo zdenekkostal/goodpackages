@@ -26,6 +26,8 @@ module.exports = function(grunt) {
 
         grunt.log.writeln('CommonJS to AMD transformation running...');
 
+        var response = 'define(function(require, exports, module) {' + grunt.file.read(...) + '});';
+
     });
 
     // Default task(s).
