@@ -8,5 +8,9 @@
   },
   "author": "",
   "license": "BSD",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-requirejs-jzaefferer": "~0.2.14"
+  }
 }
