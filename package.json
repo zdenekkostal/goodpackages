@@ -1,0 +1,12 @@
+{
+  "name": "GoodPackages",
+  "version": "0.0.1",
+  "description": "Building and delivering front-end packages. Also solving all problems of mankind.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zdenekkostal/goodpackages.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
