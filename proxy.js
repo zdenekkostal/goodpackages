@@ -15,11 +15,20 @@ var wrapDefine = function(text) {
 app.listen(1235);
 console.log('port: 1235');
 
-app.use('/', express.static(__dirname + '/app'));
+app.get('/', function(req, res) {
+    res.sendfile(__dirname + '/app/index.html');
+});
 
-app.get(/\.js$/, function(req, res) {
-    console.log('tralala');
-    var text = fs.readFileSync('.' + req.originalUrl);
+app.get(/.*lib.*/, express.static(__dirname+'/app/'));
+
+
+app.get(/.*packages.*js$/, function(req, res) {
+    var text = fs.readFileSync('./app/' + req.originalUrl);
+    res.write(wrapDefine(text));
+    res.end();
+});
+app.get(/.*pages.*js$/, function(req, res) {
+    var text = fs.readFileSync('./app/' + req.originalUrl);
     res.write(wrapDefine(text));
     res.end();
 });
