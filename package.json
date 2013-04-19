@@ -11,6 +11,8 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "grunt": "~0.4.1",
-    "grunt-requirejs-jzaefferer": "~0.2.14"
+    "grunt-requirejs-jzaefferer": "~0.2.14",
+    "connect": "~2.7.6",
+    "connect-assetmanager": "0.0.28"
   }
 }

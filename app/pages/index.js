@@ -1,0 +1,1 @@
+var Coffee = require('packages/coffees/coffee');

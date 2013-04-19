@@ -1,5 +1,7 @@
 /*global module,grunt,require, console*/
 var path = require('path');
+var connect = require('connect');
+// var connectAmd = require('tools/connectAmd');
 
 module.exports = function(grunt) {
 
@@ -26,7 +28,12 @@ module.exports = function(grunt) {
 
         grunt.log.writeln('CommonJS to AMD transformation running...');
 
-        var response = 'define(function(require, exports, module) {' + grunt.file.read(...) + '});';
+        var app = connect()
+            .use(connect.static('app'))
+            // .use(connectAmd.process)
+            .listen(8844);
+
+        // var response = 'define(function(require, exports, module) {' + grunt.file.read(...) + '});';
 
     });
 
