@@ -19,16 +19,10 @@ app.get('/', function(req, res) {
     res.sendfile(__dirname + '/app/index.html');
 });
 
-app.get(/.*lib.*/, express.static(__dirname+'/app/'));
+app.get(/.*lib.*/, express.static(__dirname + '/app'));
 
-
-app.get(/.*packages.*js$/, function(req, res) {
-    var text = fs.readFileSync('./app/' + req.originalUrl);
-    res.write(wrapDefine(text));
-    res.end();
-});
-app.get(/.*pages.*js$/, function(req, res) {
-    var text = fs.readFileSync('./app/' + req.originalUrl);
+app.get(/.*[pages|packages]\/.+\.js$/, function(req, res) {
+    var text = fs.readFileSync('app' + req.originalUrl);
     res.write(wrapDefine(text));
     res.end();
 });

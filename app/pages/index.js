@@ -1,1 +1,1 @@
-var Coffee = require('packages/coffees/coffee');
+var Coffee = require('packages/coffee/coffee');
